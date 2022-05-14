@@ -99,8 +99,6 @@ public class TimesheetPK implements Serializable {
 				return false;
 			if (idEmploye != other.idEmploye)
 				return false;
-			if (idMission != other.idMission)
-				return false;
-			return true;
+			return idMission != other.idMission;
 		}
 }
