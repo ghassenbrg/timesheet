@@ -17,7 +17,7 @@ pipeline {
 
         stage("Sonar") {
           steps {
-            bat "mvn clean verify sonar:sonar \ -Dsonar.projectKey=Timesheet \ -Dsonar.host.url=http://localhost:9000 \ -Dsonar.login=a88f1521486655a0791fc806a1f88335ea43a091"
+            bat "mvn clean verify sonar:sonar -Dsonar.projectKey=Timesheet -Dsonar.host.url=http://localhost:9000 -Dsonar.login=a88f1521486655a0791fc806a1f88335ea43a091"
          }
             
         }
