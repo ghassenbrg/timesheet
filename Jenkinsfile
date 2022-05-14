@@ -26,15 +26,7 @@ pipeline {
           steps {
             bat "mvn clean package  deploy:deploy-file  -DgroupId=tn.esprit -DartifactId=timesheet -Dversion=1.0 -DgeneratePom=true -Dpackaging=war -DrepositoryId=deploymentRepo -Durl=http://localhost:8081/repository/maven-releases/ -Dfile=target/Timesheet-1.0.war"
           }
-        }
-        
-      stage('Building image locally') {
-        steps {
-         script {
-          dockerImage = docker.build registry 
-         }
-         }
-      }   
+        }  
   }
   post {
     always {
