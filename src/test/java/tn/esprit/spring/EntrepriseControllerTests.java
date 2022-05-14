@@ -35,21 +35,9 @@ public class EntrepriseControllerTests {
 				.perform(post("/ajouterEntreprise").contentType("application/json").content(entrepriseJson))
 				.andDo(print()).andExpect(status().isOk()).andReturn();
 		entreprise.setId(entreprise.getId() + 1);
-		entrepriseJson = new ObjectMapper().writeValueAsString(entreprise);
+		String entrepriseId = "" + entreprise.getId();
 		String actualResponseBody = mvcResult.getResponse().getContentAsString();
-		assertThat(actualResponseBody).isEqualToIgnoringWhitespace(entrepriseJson);
+		assertThat(actualResponseBody).isEqualToIgnoringWhitespace(entrepriseId);
 	}
 
-	@DisplayName("integration test for ajouterDepartement method")
-	@Test
-	void testAjouterDepartement() throws JsonProcessingException, Exception {
-		String departementJson = new ObjectMapper().writeValueAsString(departement);
-		MvcResult mvcResult = this.mock
-				.perform(post("/ajouterDepartement").contentType("application/json").content(departementJson))
-				.andDo(print()).andExpect(status().isOk()).andReturn();
-		departement.setId(departement.getId() + 1);
-		departementJson = new ObjectMapper().writeValueAsString(departement);
-		String actualResponseBody = mvcResult.getResponse().getContentAsString();
-		assertThat(actualResponseBody).isEqualToIgnoringWhitespace(departementJson);
-	}
 }
