@@ -28,7 +28,10 @@ public class Departement implements Serializable {
 	@ManyToOne
 	private Entreprise entreprise;
 	
-	
+	public Departement(String name, Entreprise entreprise) {
+		this.name = name;
+		this.entreprise = entreprise;
+	}
 	
 	
 	
